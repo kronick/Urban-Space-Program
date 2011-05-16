@@ -1,0 +1,9 @@
+*.jpg
+*.JPG
+*.JPEG
+*.png
+*.PNG
+*.gz
+*.xml
+*.yaml
+!.gitignore

@@ -1,0 +1,1 @@
+gcc `pkg-config --cflags --libs opencv` -o ferns-processor ferns-processor.cpp

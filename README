@@ -1,0 +1,16 @@
+There are 3 main components to this server setup:
+1) PHP-based API - new-facade.php and (coming soon) nearby-facades.php. Accept
+		HTTP requests and return json.
+2) Database and file storage - MySQL database stores metadata about facades.
+		Copies of uploaded facade images are stored in uploads/. Fern files in 
+		ferns/. These are defaults and can be changed with settings.php.
+3) Deferred processing daemon - A PHP-based daemon (using System::Daemon) that
+		continually scans the database for unprocessed files and sends them to the
+		ferns processor (located in exec/) which is written in C++ and uses OpenCV.
+
+Dependencies:
+- PEAR and System::Daemon: http://pear.php.net/package/System_Daemon
+- AllowOverride All set in Apache config files (to block access to exec/) via
+	a .htaccess file.
+- PHP 5.2.0 or greater for built in json support.
+
